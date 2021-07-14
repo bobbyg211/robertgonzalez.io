@@ -1,23 +1,15 @@
-import React, {useEffect, useState} from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import "./styles/css/main.css";
+import React from "react";
+import { Container } from "@material-ui/core";
+import Router from "./Router";
+import Header from "./components/Header";
 
 function App() {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  }, []);
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>{!data ? "Loading..." : data}</p>
-      </header>
-    </div>
+    <Container className="App">
+      <Header />
+      <Router />
+    </Container>
   );
 }
 

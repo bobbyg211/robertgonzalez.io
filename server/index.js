@@ -9,7 +9,7 @@ app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 // Handle GET requests to /api route
 app.get("/api", (req, res) => {
-  res.json({ message: "Hello from server!" });
+  res.json({ message: "Hello from the RG.io server!" });
 });
 
 // All other GET requests not handled before will return our React app
@@ -18,5 +18,5 @@ app.get("*", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}!`);
+  console.log(`Server listening on port ${PORT}...`);
 });

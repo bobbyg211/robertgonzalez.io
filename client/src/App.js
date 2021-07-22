@@ -1,15 +1,15 @@
-import "./styles/css/main.css";
+import "./styles/scss/main.scss";
 import React from "react";
-import { Container } from "@material-ui/core";
+
 import Router from "./Router";
 import Header from "./components/Header";
 
 function App() {
   return (
-    <Container className="App">
+    <div className="App">
       <Header />
       <Router />
-    </Container>
+    </div>
   );
 }
 

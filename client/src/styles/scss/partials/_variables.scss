@@ -1,0 +1,23 @@
+$header-font: "Aqua Grotesque", sans-serif;
+$body-font: "Open Sans", sans-serif;
+$body-color: #ffffff;
+$sky-blue: #67d0ff;
+$light-blue: #009dff;
+$middle-blue: #1345b5;
+$dark-blue: #00256c;
+$black-blue: #03000a;
+$dark-purple: #1e0081;
+$middle-purple: #4e00ff;
+$light-purple: #c5a0ff;
+$teal: #15ffed;
+$aqua: #004f81;
+$font-weights: (
+  "light": 300,
+  "regular": 500,
+  "bold": 700,
+);
+$breakpoints: (
+  "desktop": 1280px,
+  "tablet": 768px,
+  "mobile": 480px,
+);

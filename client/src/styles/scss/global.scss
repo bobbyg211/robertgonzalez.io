@@ -1,0 +1,101 @@
+// Imports
+
+@import "./partials/resets";
+@import "./partials/fonts";
+@import "./partials/variables";
+@import "./partials/functions";
+@import "./partials/mixins";
+
+// Basics
+
+html {
+  font-size: 18px;
+  font-weight: weight(regular);
+}
+
+body {
+  color: $body-color;
+  background: $black-blue;
+  font-family: $body-font;
+}
+
+.header {
+  @include flexCenter(row);
+  margin-bottom: 50px;
+  padding: 20px;
+
+  .logo {
+    max-width: 50px;
+    margin-right: 20px;
+
+    &_text {
+      margin: 0;
+    }
+  }
+
+  @include tablet {
+    @include flexCenter(column);
+  }
+}
+
+.light {
+  @include theme($light-theme: false);
+}
+
+// Containers
+
+[class*="container"] {
+  width: 100%;
+  padding: 110px;
+  margin: 0 auto;
+}
+
+.container-lg {
+  max-width: 1640px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li {
+  margin: 0 0 40px 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $header-font;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  font-weight: weight(light);
+}
+
+h1 {
+  font-size: clamp(30px, 4.688vw, 100px);
+  line-height: clamp(45px, 6.25vw, 145px);
+}
+
+h2 {
+  font-size: clamp(30px, 3.906vw, 65px);
+}
+
+p,
+li {
+  font-size: 1rem;
+}
+
+// Color classes
+
+.sky-blue {
+  color: $sky-blue;
+}

@@ -1,0 +1,18 @@
+@mixin flexCenter($direction) {
+  display: flex;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin theme($light-theme: true) {
+  @if $light-theme {
+    background: lighten($black-blue, 100%);
+    color: darken($body-color, 100%);
+  }
+}
+
+@mixin tablet {
+  @media (max-width: breakpoint(tablet)) {
+    @content;
+  }
+}

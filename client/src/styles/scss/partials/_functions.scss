@@ -1,0 +1,7 @@
+@function weight($weight-name) {
+  @return map-get($font-weights, $weight-name);
+}
+
+@function breakpoint($breakpoint-name) {
+  @return map-get($breakpoints, $breakpoint-name);
+}

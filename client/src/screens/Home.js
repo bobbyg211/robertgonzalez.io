@@ -9,24 +9,24 @@ export default function Home() {
     const projectsColor = { r: 0, g: 79, b: 129 };
 
     scrollColorTrans(
-      ".home.page",
-      ".home .banner",
-      ".home .skills-services",
+      "#home.page",
+      "#home .banner",
+      "#home .skills-services",
       bannerColor,
       skillsColor
     );
 
     scrollColorTrans(
-      ".home.page",
-      ".home .skills-services",
-      ".home .projects",
+      "#home.page",
+      "#home .skills-services",
+      "#home .projects",
       skillsColor,
       projectsColor
     );
   }, []);
 
   return (
-    <div className="home page">
+    <div id="home" className="page">
       <div className="banner section">
         <div className="wrapper container-lg">
           <div className="content">

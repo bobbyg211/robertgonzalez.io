@@ -15,12 +15,19 @@
   }
 
   .section {
-    min-height: 100vh;
     position: relative;
     z-index: 1;
-    padding: 100px 0;
+    min-height: 100vh;
+    padding: 100px;
+
+    .wrapper {
+      position: relative;
+    }
 
     @include tablet {
+      padding-left: 20px;
+      padding-right: 20px;
+
       &:not(:first-child) {
         min-height: initial;
       }
@@ -36,7 +43,7 @@
     align-items: center;
 
     .content {
-      width: 60%;
+      width: 70%;
       position: relative;
       z-index: 3;
 
@@ -58,22 +65,32 @@
     .headshot {
       position: absolute;
       z-index: 1;
-      bottom: 0;
+      top: 50%;
       right: 0;
+      transform: translateY(-50%);
+      height: 175%;
 
       img {
         opacity: 0.9;
-        width: 100%;
-        height: auto;
+        width: auto;
+        height: 100%;
         mask-image: linear-gradient(
           to bottom,
           rgba(0, 0, 0, 1) 70%,
           rgba(0, 0, 0, 0) 100%
         );
+
+        @include tablet {
+          width: 100%;
+          height: auto;
+        }
       }
 
       @include tablet {
         position: relative;
+        top: 0;
+        transform: translateY(0%);
+        height: 100%;
       }
     }
   }

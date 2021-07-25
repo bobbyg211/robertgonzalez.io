@@ -3,11 +3,11 @@ import headshot from "../assets/images/headshot-home.png";
 import { scrollColorTrans } from "../scripts/utils";
 
 export default function Home() {
-  const bannerColor = { r: 0, g: 37, b: 108 };
-  const skillsColor = { r: 30, g: 0, b: 129 };
-  const projectsColor = { r: 0, g: 79, b: 129 };
-
   useEffect(() => {
+    const bannerColor = { r: 0, g: 37, b: 108 };
+    const skillsColor = { r: 30, g: 0, b: 129 };
+    const projectsColor = { r: 0, g: 79, b: 129 };
+
     scrollColorTrans(
       ".home.page",
       ".home .banner",

@@ -11,7 +11,8 @@ body {
 }
 
 .header {
-  @include flexCenter(row);
+  display: flex;
+  align-items: center;
   padding: 20px;
   position: fixed;
   z-index: 999999;
@@ -25,11 +26,11 @@ body {
 
     &_text {
       margin: 0;
-    }
-  }
 
-  @include tablet {
-    @include flexCenter(column);
+      @include tablet {
+        display: none;
+      }
+    }
   }
 }
 

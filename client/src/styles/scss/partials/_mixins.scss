@@ -27,7 +27,7 @@
   font-size: clamp(16px, 1.563vw, 20px);
   color: $content-color;
   text-align: center;
-  min-width: 315px;
+  min-width: 275px;
   padding: 20px 50px 15px 50px;
   border-radius: 30px;
   text-transform: uppercase;
@@ -55,12 +55,6 @@
 }
 
 // test
-@mixin flexCenter($direction) {
-  display: flex;
-  align-items: center;
-  flex-direction: $direction;
-}
-
 @mixin theme($light-theme: true) {
   @if $light-theme {
     background: lighten($black-blue, 100%);

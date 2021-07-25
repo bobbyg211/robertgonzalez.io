@@ -1,2 +1,10 @@
+// Partials
+@import "./partials/resets";
+@import "./partials/fonts";
+@import "./partials/variables";
+@import "./partials/functions";
+@import "./partials/mixins";
+
+// All Sheets
 @import "global.scss";
 @import "home.scss";

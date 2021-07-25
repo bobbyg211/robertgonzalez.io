@@ -1,16 +1,21 @@
 $header-font: "Aqua Grotesque", sans-serif;
-$body-font: "Open Sans", sans-serif;
-$body-color: #ffffff;
+$content-font: "Open Sans", sans-serif;
+$content-color: #ffffff;
 $sky-blue: #67d0ff;
 $light-blue: #009dff;
 $middle-blue: #1345b5;
-$dark-blue: #00256c;
+$dark-blue: #004f81;
+$x-dark-blue: #00256c;
 $black-blue: #03000a;
 $dark-purple: #1e0081;
 $middle-purple: #4e00ff;
 $light-purple: #c5a0ff;
-$teal: #15ffed;
-$aqua: #004f81;
+$aqua: #15ffed;
+$container-sizes: (
+  "large": 1640px,
+  "medium": 1280px,
+  "small": 1000px,
+);
 $font-weights: (
   "light": 300,
   "regular": 500,

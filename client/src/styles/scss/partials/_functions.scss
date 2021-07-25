@@ -5,3 +5,7 @@
 @function breakpoint($breakpoint-name) {
   @return map-get($breakpoints, $breakpoint-name);
 }
+
+@function containerSize($container-size-name) {
+  @return map-get($container-sizes, $container-size-name);
+}

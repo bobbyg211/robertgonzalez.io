@@ -1,11 +1,3 @@
-// Imports
-
-@import "./partials/resets";
-@import "./partials/fonts";
-@import "./partials/variables";
-@import "./partials/functions";
-@import "./partials/mixins";
-
 // Basics
 
 html {
@@ -14,15 +6,18 @@ html {
 }
 
 body {
-  color: $body-color;
+  @include content;
   background: $black-blue;
-  font-family: $body-font;
 }
 
 .header {
   @include flexCenter(row);
-  margin-bottom: 50px;
   padding: 20px;
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  width: 100%;
 
   .logo {
     max-width: 50px;
@@ -44,25 +39,25 @@ body {
 
 // Containers
 
-[class*="container"] {
+.container {
   width: 100%;
-  padding: 110px;
+  padding: 0 20px;
   margin: 0 auto;
-}
 
-.container-lg {
-  max-width: 1640px;
-}
+  &-lg {
+    @extend .container;
+    max-width: containerSize(large);
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-li {
-  margin: 0 0 40px 0;
+  &-md {
+    @extend .container;
+    max-width: containerSize(medium);
+  }
+
+  &-sm {
+    @extend .container;
+    max-width: containerSize(small);
+  }
 }
 
 h1,
@@ -71,13 +66,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $header-font;
-  text-transform: uppercase;
-}
-
-h1,
-h2 {
-  font-weight: weight(light);
+  @include headings;
 }
 
 h1 {
@@ -87,15 +76,34 @@ h1 {
 
 h2 {
   font-size: clamp(30px, 3.906vw, 65px);
+  line-height: clamp(40px, 5.469vw, 100px);
 }
 
 p,
-li {
-  font-size: 1rem;
+li,
+td {
+  font-size: clamp(14px, 1.406vw, 18px);
+  line-height: clamp(25px, 2.734vw, 35px);
+  font-weight: weight(regular);
+  margin: 0 0 40px 0;
 }
 
 // Color classes
 
 .sky-blue {
   color: $sky-blue;
+}
+
+.light-purple {
+  color: $light-purple;
+}
+
+.aqua {
+  color: $aqua;
+}
+
+// Buttons
+.blue-btn {
+  @include button;
+  background: linear-gradient(to right, $middle-blue, $light-blue);
 }

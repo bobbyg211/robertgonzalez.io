@@ -12,104 +12,255 @@ body {
 
 #header {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  height: 100vh;
   padding: 20px;
   position: fixed;
   z-index: 999999;
   top: 0;
   left: 0;
   width: 100%;
+  pointer-events: none;
 
-  .logo {
+  .main-ribbon {
     display: flex;
     align-items: center;
+    margin-bottom: auto;
 
-    .mark {
-      max-width: clamp(40px, 4.688vw, 70px); // 40, 60, 70
-      margin-right: 20px;
-    }
-
-    .name {
-      margin: 0;
-      font-size: clamp(20px, 1.563vw, 24px);
-
-      @include tablet {
-        display: none;
-      }
-    }
-  }
-
-  #navigation {
-    margin-left: auto;
-
-    .open-close {
-      width: clamp(45px, 6.25vw, 80px);
-      height: clamp(45px, 6.25vw, 80px);
-      background: transparent;
-      border-radius: 50%;
-      border: 1px solid $sky-blue;
+    .logo {
+      pointer-events: initial;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      cursor: pointer;
 
-      span {
-        width: clamp(17px, 2.344vw, 30px);
-        height: 3px;
-        display: block;
-        background: $sky-blue;
-        position: relative;
-        top: 0;
-        transition: all 0.2s ease;
+      .mark {
+        max-width: clamp(40px, 4.688vw, 70px);
+        margin-right: 20px;
 
-        @include tablet {
-          height: 1px;
+        svg {
+          width: 100%;
+          height: auto;
+
+          .a {
+            fill: url(#a);
+          }
+        }
+      }
+
+      .name {
+        margin: 0;
+        overflow: hidden;
+        font-size: clamp(20px, 1.563vw, 24px);
+
+        span {
+          position: relative;
+          left: 0;
+          transition: all 0.2s ease;
         }
 
-        &:nth-child(1) {
-          margin-bottom: 7px;
+        &.active span {
+          left: -100%;
+        }
+
+        @include tablet {
+          display: none;
+        }
+      }
+    }
+
+    #navigation {
+      pointer-events: initial;
+      margin-left: auto;
+
+      .open-close {
+        width: clamp(45px, 6.25vw, 80px);
+        height: clamp(45px, 6.25vw, 80px);
+        background: transparent;
+        border-radius: 50%;
+        border: 1px solid $sky-blue;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        span {
+          width: clamp(17px, 2.344vw, 30px);
+          height: 3px;
+          display: block;
+          background: $sky-blue;
+          position: relative;
+          top: 0;
+          transition: all 0.2s ease;
 
           @include tablet {
-            margin-bottom: 4px;
+            height: 1px;
+          }
+
+          &:nth-child(1) {
+            margin-bottom: 7px;
+
+            @include tablet {
+              margin-bottom: 4px;
+            }
+          }
+
+          &:nth-child(2) {
+            margin-top: 7px;
+
+            @include tablet {
+              margin-top: 4px;
+            }
+          }
+        }
+      }
+
+      #main-menu {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        position: fixed;
+      }
+
+      &.active .open-close span {
+        color: red;
+
+        &:nth-child(1) {
+          transform: rotate(45deg);
+          top: 9px;
+
+          @include tablet {
+            top: 4px;
           }
         }
 
         &:nth-child(2) {
-          margin-top: 7px;
+          transform: rotate(-45deg);
+          top: -8px;
 
           @include tablet {
-            margin-top: 4px;
+            top: -5px;
           }
         }
       }
     }
+  }
 
-    #main-menu {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-      position: fixed;
-    }
+  .sub-ribbon {
+    display: flex;
+    align-items: flex-end;
 
-    &.active .open-close span {
-      color: red;
+    .social {
+      pointer-events: initial;
 
-      &:nth-child(1) {
-        transform: rotate(45deg);
-        top: 9px;
-
-        @include tablet {
-          top: 4px;
+      .github {
+        .a,
+        .d {
+          fill: $sky-blue;
+        }
+        .b,
+        .f {
+          fill: none;
+        }
+        .b {
+          stroke: $sky-blue;
+          stroke-width: 2px;
+        }
+        .c {
+          clip-path: url(#a);
+        }
+        .d {
+          fill-rule: evenodd;
+        }
+        .e {
+          stroke: none;
         }
       }
 
-      &:nth-child(2) {
-        transform: rotate(-45deg);
-        top: -8px;
+      .twitter {
+        .a,
+        .b {
+          fill: none;
+        }
+        .a {
+          stroke: $sky-blue;
+          stroke-width: 2px;
+        }
+        .c {
+          fill: $sky-blue;
+        }
+        .d {
+          stroke: none;
+        }
+      }
 
-        @include tablet {
-          top: -5px;
+      .linkedin {
+        .a {
+          fill: $sky-blue;
+        }
+        .b,
+        .e {
+          fill: none;
+        }
+        .b {
+          stroke: $sky-blue;
+          stroke-width: 2px;
+        }
+        .c {
+          clip-path: url(#a);
+        }
+        .d {
+          stroke: none;
+        }
+      }
+    }
+
+    .dot-nav {
+      pointer-events: initial;
+      margin-left: auto;
+
+      span {
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin: 15px 0;
+        position: relative;
+
+        &.blue {
+          background: $sky-blue;
+        }
+
+        &.blue:after {
+          content: "";
+          width: 15px;
+          height: 15px;
+          display: block;
+          border: 2px solid $sky-blue;
+          border-radius: 50%;
+          opacity: 1;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        &.blue.active:after {
+          opacity: 0;
+          width: 30px;
+          height: 30px;
+          transition: all 0.5s ease;
+        }
+
+        &.purple {
+          background: $light-purple;
+        }
+
+        &.green {
+          background: $aqua;
+        }
+
+        &.white {
+          background: white;
         }
       }
     }
@@ -124,7 +275,8 @@ body {
 
 .container {
   width: 100%;
-  padding: 0 20px;
+  padding-left: clamp(20px, 7.813vw, 100px);
+  padding-right: clamp(20px, 7.813vw, 100px);
   margin: 0 auto;
 
   &-lg {

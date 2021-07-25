@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import headshot from "../assets/images/headshot-home.png";
-import { scrollColorTrans } from "../scripts/utils";
+import { scrollBgColorTrans } from "../scripts/utils";
 
 export default function Home() {
   useEffect(() => {
@@ -8,16 +8,18 @@ export default function Home() {
     const skillsColor = { r: 30, g: 0, b: 129 };
     const projectsColor = { r: 0, g: 79, b: 129 };
 
-    scrollColorTrans(
+    scrollBgColorTrans(
       "#home.page",
+      null,
       "#home .banner",
       "#home .skills-services",
       bannerColor,
       skillsColor
     );
 
-    scrollColorTrans(
+    scrollBgColorTrans(
       "#home.page",
+      null,
       "#home .skills-services",
       "#home .projects",
       skillsColor,
@@ -41,7 +43,7 @@ export default function Home() {
               dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
               sanctus est Lorem ipsum dolor sit amet.
             </p>
-            <div class="ctas">
+            <div className="ctas">
               <a href="/" className="blue-btn">
                 Hire Me
               </a>

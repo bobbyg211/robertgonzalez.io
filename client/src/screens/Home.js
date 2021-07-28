@@ -11,8 +11,8 @@ export default function Home() {
     scrollBgColorTrans(
       "#home.page",
       null,
-      "#home .banner",
-      "#home .skills-services",
+      "#home #banner",
+      "#home #skills-services",
       bannerColor,
       skillsColor
     );
@@ -20,8 +20,8 @@ export default function Home() {
     scrollBgColorTrans(
       "#home.page",
       null,
-      "#home .skills-services",
-      "#home .projects",
+      "#home #skills-services",
+      "#home #projects",
       skillsColor,
       projectsColor
     );
@@ -29,7 +29,7 @@ export default function Home() {
 
   return (
     <div id="home" className="page">
-      <div className="banner section">
+      <div id="banner" className="section">
         <div className="wrapper container-lg">
           <div className="content">
             <h1>
@@ -54,7 +54,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="skills-services section">
+      <div id="skills-services" className="section">
         <div className="wrapper container-lg">
           <div className="content">
             <h2>
@@ -78,7 +78,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="projects section">
+      <div id="projects" className="section">
         <div className="wrapper container-lg">
           <div className="content">
             <h2>

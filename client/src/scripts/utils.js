@@ -66,8 +66,6 @@ export const scrollSvgColorTrans = (
   const gDist = endColorObj.g - startColorObj.g;
   const bDist = endColorObj.b - startColorObj.b;
 
-  console.log(svgStopColor);
-
   window.addEventListener("scroll", () => {
     const currStartPosY = start.getBoundingClientRect().top;
     const progressPerc = -currStartPosY / (endPosY - startPosY);
@@ -103,5 +101,37 @@ export const scrollSvgColorTrans = (
         }
       }
     }
+  });
+};
+
+export const dotSwitch = () => {
+  // Section detection logic
+  let allIDs = [];
+  let links = document.querySelectorAll("#header .sub-ribbon .dot-nav a");
+  links.forEach((link) => allIDs.push(link.hash));
+
+  window.addEventListener("scroll", () => {
+    let scrollTop = window.scrollY;
+
+    allIDs.forEach((id, index) => {
+      if (id.length > 0) {
+        const currTier = document.querySelector(id);
+        const currTierTopOffset = currTier.getBoundingClientRect().top;
+        const currTierBottomOffset = currTier.getBoundingClientRect().bottom;
+
+        if (
+          (currTierTopOffset <= 0 && currTierTopOffset >= -100) ||
+          (currTierBottomOffset >= 0 && currTierBottomOffset <= 100)
+        ) {
+          const dots = document.querySelectorAll("#header .dot-nav a");
+          const currDot = document.querySelector(
+            `#header .dot-nav a[href="${id}"]`
+          );
+
+          dots.forEach((link) => link.classList.remove("active"));
+          currDot.classList.add("active");
+        }
+      }
+    });
   });
 };

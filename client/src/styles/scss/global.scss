@@ -3,6 +3,7 @@
 html {
   font-size: 18px;
   font-weight: weight(regular);
+  scroll-behavior: smooth;
 }
 
 body {
@@ -218,7 +219,7 @@ body {
       pointer-events: initial;
       margin-left: auto;
 
-      span {
+      a {
         display: block;
         width: 20px;
         height: 20px;
@@ -226,41 +227,53 @@ body {
         margin: 15px 0;
         position: relative;
 
-        &.blue {
-          background: $sky-blue;
-        }
-
-        &.blue:after {
+        &:after {
           content: "";
-          width: 15px;
-          height: 15px;
-          display: block;
-          border: 2px solid $sky-blue;
+          display: none;
           border-radius: 50%;
-          opacity: 1;
           position: absolute;
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%);
         }
 
-        &.blue.active:after {
-          opacity: 0;
-          width: 30px;
-          height: 30px;
-          transition: all 0.5s ease;
+        &.active:after {
+          display: block;
+          animation-name: dotPulse;
+          animation-duration: 1s;
+          animation-iteration-count: infinite;
+        }
+
+        &.blue {
+          background: $sky-blue;
+
+          &:after {
+            border: 2px solid $sky-blue;
+          }
         }
 
         &.purple {
           background: $light-purple;
+
+          &:after {
+            border: 2px solid $light-purple;
+          }
         }
 
         &.green {
           background: $aqua;
+
+          &:after {
+            border: 2px solid $aqua;
+          }
         }
 
         &.white {
           background: white;
+
+          &:after {
+            border: 2px solid white;
+          }
         }
       }
     }

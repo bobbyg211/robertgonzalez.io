@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
-import logo from "../assets/images/rg-io-logo.svg";
-import { scrollSvgColorTrans, scrollBgColorTrans } from "../scripts/utils";
+import {
+  scrollSvgColorTrans,
+  scrollBgColorTrans,
+  dotSwitch,
+} from "../scripts/utils";
 
 export default function Header() {
   useEffect(() => {
@@ -21,6 +24,8 @@ export default function Header() {
       nav.classList.toggle("active");
     });
 
+    dotSwitch();
+
     const bannerSvgColor = { r: 103, g: 208, b: 255 };
     const skillsSvgColor = { r: 197, g: 160, b: 255 };
     const projectsSvgColor = { r: 21, g: 255, b: 237 };
@@ -35,8 +40,8 @@ export default function Header() {
     scrollBgColorTrans(
       "#navigation .open-close span",
       "#navigation .open-close",
-      "#home .banner",
-      "#home .skills-services",
+      "#home #banner",
+      "#home #skills-services",
       bannerSvgColor,
       skillsSvgColor
     );
@@ -44,8 +49,8 @@ export default function Header() {
     scrollBgColorTrans(
       "#navigation .open-close span",
       "#navigation .open-close",
-      "#home .skills-services",
-      "#home .projects",
+      "#home #skills-services",
+      "#home #projects",
       skillsSvgColor,
       projectsSvgColor
     );
@@ -54,8 +59,8 @@ export default function Header() {
       "#header .sub-ribbon .social svg path",
       "#header .sub-ribbon .social svg > g > g > rect:last-child",
       null,
-      "#home .banner",
-      "#home .skills-services",
+      "#home #banner",
+      "#home #skills-services",
       bannerSvgColor,
       skillsSvgColor
     );
@@ -64,8 +69,8 @@ export default function Header() {
       "#header .sub-ribbon .social svg path",
       "#header .sub-ribbon .social svg > g > g > rect:last-child",
       null,
-      "#home .skills-services",
-      "#home .projects",
+      "#home #skills-services",
+      "#home #projects",
       skillsSvgColor,
       projectsSvgColor
     );
@@ -74,8 +79,8 @@ export default function Header() {
       null,
       null,
       "#header .main-ribbon .logo svg defs linearGradient stop:first-child",
-      "#home .banner",
-      "#home .skills-services",
+      "#home #banner",
+      "#home #skills-services",
       lightBlue,
       lightPurple
     );
@@ -84,8 +89,8 @@ export default function Header() {
       null,
       null,
       "#header .main-ribbon .logo svg defs linearGradient stop:last-child",
-      "#home .banner",
-      "#home .skills-services",
+      "#home #banner",
+      "#home #skills-services",
       middleBlue,
       purple
     );
@@ -94,8 +99,8 @@ export default function Header() {
       null,
       null,
       "#header .main-ribbon .logo svg defs linearGradient stop:first-child",
-      "#home .skills-services",
-      "#home .projects",
+      "#home #skills-services",
+      "#home #projects",
       lightPurple,
       cyan
     );
@@ -104,8 +109,8 @@ export default function Header() {
       null,
       null,
       "#header .main-ribbon .logo svg defs linearGradient stop:last-child",
-      "#home .skills-services",
-      "#home .projects",
+      "#home #skills-services",
+      "#home #projects",
       purple,
       darkCyan
     );
@@ -277,10 +282,10 @@ export default function Header() {
         </div>
 
         <div className="dot-nav">
-          <span className="blue"></span>
-          <span className="purple"></span>
-          <span className="green"></span>
-          <span className="white"></span>
+          <a href="#banner" className="blue active"></a>
+          <a href="#skills-services" className="purple"></a>
+          <a href="#projects" className="green"></a>
+          <a href="#" className="white"></a>
         </div>
       </div>
     </header>

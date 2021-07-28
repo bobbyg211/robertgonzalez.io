@@ -1,0 +1,12 @@
+@keyframes dotPulse {
+  from {
+    width: 15px;
+    height: 15px;
+    opacity: 1;
+  }
+  to {
+    width: 30px;
+    height: 30px;
+    opacity: 0;
+  }
+}

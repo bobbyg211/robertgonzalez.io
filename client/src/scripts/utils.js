@@ -107,31 +107,47 @@ export const scrollSvgColorTrans = (
 export const dotSwitch = () => {
   // Section detection logic
   let allIDs = [];
-  let links = document.querySelectorAll("#header .sub-ribbon .dot-nav a");
+  let links = document.querySelectorAll("#home .dot-nav a");
   links.forEach((link) => allIDs.push(link.hash));
 
-  window.addEventListener("scroll", () => {
-    let scrollTop = window.scrollY;
+  idCheck(false);
 
-    allIDs.forEach((id, index) => {
+  function idCheck(limitDetectionArea) {
+    allIDs.forEach((id) => {
       if (id.length > 0) {
         const currTier = document.querySelector(id);
         const currTierTopOffset = currTier.getBoundingClientRect().top;
         const currTierBottomOffset = currTier.getBoundingClientRect().bottom;
 
-        if (
-          (currTierTopOffset <= 0 && currTierTopOffset >= -100) ||
-          (currTierBottomOffset >= 0 && currTierBottomOffset <= 100)
-        ) {
-          const dots = document.querySelectorAll("#header .dot-nav a");
-          const currDot = document.querySelector(
-            `#header .dot-nav a[href="${id}"]`
-          );
+        if (limitDetectionArea) {
+          if (
+            (currTierTopOffset <= 0 && currTierTopOffset >= -100) ||
+            (currTierBottomOffset >= 0 && currTierBottomOffset <= 100)
+          ) {
+            const dots = document.querySelectorAll("#home .dot-nav a");
+            const currDot = document.querySelector(
+              `#home .dot-nav a[href="${id}"]`
+            );
 
-          dots.forEach((link) => link.classList.remove("active"));
-          currDot.classList.add("active");
+            dots.forEach((link) => link.classList.remove("active"));
+            currDot.classList.add("active");
+          }
+        } else {
+          if (currTierTopOffset <= 0) {
+            const dots = document.querySelectorAll("#home .dot-nav a");
+            const currDot = document.querySelector(
+              `#home .dot-nav a[href="${id}"]`
+            );
+
+            dots.forEach((link) => link.classList.remove("active"));
+            currDot.classList.add("active");
+          }
         }
       }
     });
+  }
+
+  window.addEventListener("scroll", () => {
+    idCheck(true);
   });
 };

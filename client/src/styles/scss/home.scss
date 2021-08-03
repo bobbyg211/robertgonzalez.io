@@ -14,10 +14,85 @@
     );
   }
 
+  .dot-nav {
+    position: fixed;
+    z-index: 999999;
+    bottom: 20px;
+    right: 20px;
+    pointer-events: initial;
+    margin-left: auto;
+
+    @include tablet {
+      display: none;
+    }
+
+    a {
+      display: block;
+      width: clamp(15px, 1.953vw, 25px);
+      height: clamp(15px, 1.953vw, 25px);
+      border-radius: 50%;
+      margin: 15px 0;
+      position: relative;
+
+      span {
+        position: absolute;
+        right: -1000%;
+      }
+
+      &:after {
+        content: "";
+        display: none;
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      &.active:after {
+        display: block;
+        animation-name: dotPulse;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+      }
+
+      &.blue {
+        background: $sky-blue;
+
+        &:after {
+          border: 2px solid $sky-blue;
+        }
+      }
+
+      &.purple {
+        background: $light-purple;
+
+        &:after {
+          border: 2px solid $light-purple;
+        }
+      }
+
+      &.green {
+        background: $aqua;
+
+        &:after {
+          border: 2px solid $aqua;
+        }
+      }
+
+      &.white {
+        background: white;
+
+        &:after {
+          border: 2px solid white;
+        }
+      }
+    }
+  }
+
   .section {
     position: relative;
     z-index: 1;
-    min-height: 100vh;
     padding: 100px 0;
 
     .wrapper {
@@ -36,6 +111,7 @@
   }
 
   #banner {
+    min-height: 100vh;
     display: flex !important;
     align-items: center;
 
@@ -93,6 +169,15 @@
   }
 
   #skills-services {
+    .brain-video {
+      width: auto;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 
   #projects {

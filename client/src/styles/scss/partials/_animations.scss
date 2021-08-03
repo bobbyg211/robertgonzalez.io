@@ -1,12 +1,12 @@
 @keyframes dotPulse {
   from {
-    width: 15px;
-    height: 15px;
+    width: clamp(10px, 1.563vw, 20px);
+    height: clamp(10px, 1.563vw, 20px);
     opacity: 1;
   }
   to {
-    width: 30px;
-    height: 30px;
+    width: clamp(25px, 2.734vw, 35px);
+    height: clamp(25px, 2.734vw, 35px);
     opacity: 0;
   }
 }

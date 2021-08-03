@@ -1,9 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  scrollSvgColorTrans,
-  scrollBgColorTrans,
-  dotSwitch,
-} from "../scripts/utils";
+import { scrollSvgColorTrans, scrollBgColorTrans } from "../scripts/utils";
 
 export default function Header() {
   useEffect(() => {
@@ -24,8 +20,6 @@ export default function Header() {
       nav.classList.toggle("active");
     });
 
-    dotSwitch();
-
     const bannerSvgColor = { r: 103, g: 208, b: 255 };
     const skillsSvgColor = { r: 197, g: 160, b: 255 };
     const projectsSvgColor = { r: 21, g: 255, b: 237 };
@@ -37,6 +31,8 @@ export default function Header() {
     const cyan = { r: 0, g: 174, b: 181 };
     const darkCyan = { r: 0, g: 117, b: 160 };
 
+    // Open/Close Menu
+
     scrollBgColorTrans(
       "#navigation .open-close span",
       "#navigation .open-close",
@@ -54,6 +50,17 @@ export default function Header() {
       skillsSvgColor,
       projectsSvgColor
     );
+
+    scrollBgColorTrans(
+      "#navigation .open-close span",
+      "#navigation .open-close",
+      "#home #projects",
+      "#home #together",
+      projectsSvgColor,
+      bannerSvgColor
+    );
+
+    // Social Icons
 
     scrollSvgColorTrans(
       "#header .sub-ribbon .social svg path",
@@ -74,6 +81,18 @@ export default function Header() {
       skillsSvgColor,
       projectsSvgColor
     );
+
+    scrollSvgColorTrans(
+      "#header .sub-ribbon .social svg path",
+      "#header .sub-ribbon .social svg > g > g > rect:last-child",
+      null,
+      "#home #projects",
+      "#home #together",
+      projectsSvgColor,
+      bannerSvgColor
+    );
+
+    // Logo
 
     scrollSvgColorTrans(
       null,
@@ -113,6 +132,26 @@ export default function Header() {
       "#home #projects",
       purple,
       darkCyan
+    );
+
+    scrollSvgColorTrans(
+      null,
+      null,
+      "#header .main-ribbon .logo svg defs linearGradient stop:first-child",
+      "#home #projects",
+      "#home #together",
+      cyan,
+      lightBlue
+    );
+
+    scrollSvgColorTrans(
+      null,
+      null,
+      "#header .main-ribbon .logo svg defs linearGradient stop:last-child",
+      "#home #projects",
+      "#home #together",
+      darkCyan,
+      middleBlue
     );
   }, []);
 
@@ -279,13 +318,6 @@ export default function Header() {
               </svg>
             </a>
           </div>
-        </div>
-
-        <div className="dot-nav">
-          <a href="#banner" className="blue active"></a>
-          <a href="#skills-services" className="purple"></a>
-          <a href="#projects" className="green"></a>
-          <a href="#" className="white"></a>
         </div>
       </div>
     </header>
